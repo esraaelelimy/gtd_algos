@@ -1,0 +1,44 @@
+
+tag: 'qrc_lambda'
+wandb_project_name: 'minatar_qrc_defaults'
+exp_seed: 0
+algo: qrc_lambda
+
+
+#### Env related
+env_config:
+  domain: gym  
+  env_name: "MinAtar/Breakout-v1"
+    #- "MinAtar/Asterix-v1"
+    #- "MinAtar/Breakout-v1"
+    #- "MinAtar/Freeway-v1"
+    #- "MinAtar/SpaceInvaders-v1"
+    #- "MinAtar/Seaquest-v1"
+  ## wrappers
+  normalize_obs: True
+  normalize_reward: True
+  env_seed: 0
+
+
+#### QRC related
+agent_config:
+  gamma: 0.99
+  lamda: 0.8
+  gradient_correction: True  # True = TDC and TDRC, False = GTD2
+  reg_coeff: 1.0 # beta coeff for TDRC
+
+  total_steps: 5_000_000
+  explore_frac: 0.2
+  start_epsilon: 1.0
+  end_epsilon: 0.01
+
+  ## network related
+  shared_net: False # True for shared network between Q and h (not currently supported)
+  q_lr: 0.0001     # learning rate for Q network
+  h_lr_scale: 0.1   # specify a multiple of lr for h
+  opt: sgd
+  net_arch: minatar
+  activation: leaky_relu
+  sparse_init: 0.9
+  layer_norm: True
+

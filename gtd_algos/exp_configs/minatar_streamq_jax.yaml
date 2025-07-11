@@ -1,0 +1,35 @@
+
+tag: 'def streamq'
+wandb_project_name: 'minatar_streamq_jax_defaults'
+exp_seed: 0
+algo: streamq
+
+
+#### Env related
+env_config: 
+  domain: gym  
+  env_name: "MinAtar/Breakout-v1"
+  ## wrappers
+  normalize_obs: True
+  normalize_reward: True
+  env_seed: 0
+
+
+#### Stream-Q related
+agent_config:
+  gamma: 0.99
+  lamda: 0.8
+
+  total_steps: 5_000_000
+  explore_frac: 0.2
+  start_epsilon: 1.0
+  end_epsilon: 0.01
+
+  ## network related
+  kappa: 2.0
+  lr: 1.0
+  opt: obgd
+  net_arch: minatar
+  activation: leaky_relu
+  sparse_init: 0.9
+  layer_norm: True

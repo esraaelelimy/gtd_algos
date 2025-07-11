@@ -1,0 +1,30 @@
+
+tag: 'def streamq pytorch'
+wandb_project_name: 'minatar_streamq_defaults'
+exp_seed: 0
+algo: streamq_pytorch
+
+
+#### Env related
+env_config: 
+  domain: gym  # gymnax, brax, pobrax_p or pobrax_v, popjax
+  env_name: "MinAtar/Breakout-v1"
+  ## wrappers
+  normalize_obs: True
+  normalize_reward: True
+  env_seed: 0
+
+
+#### Stream-Q related
+agent_config:
+  gamma: 0.99
+  lamda: 0.8
+
+  total_steps: 5_000_000
+  explore_frac: 0.2
+  start_epsilon: 1.0
+  end_epsilon: 0.01
+
+  ## optimizer related
+  kappa: 2.0
+  lr: 1.0

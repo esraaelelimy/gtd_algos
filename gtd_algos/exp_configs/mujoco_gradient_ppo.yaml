@@ -1,0 +1,48 @@
+
+tag: 'gradient_ppo'
+wandb_project_name: 'mujoco_gradient_ppo_defaults'
+exp_seed: 0
+algo: gradient_ppo
+#### Env related
+env_config: 
+  domain: gym  
+  env_name: Ant-v4
+  ## for env with continuous action space
+  continous_action: True
+  clip_action: True
+  ## wrappers
+  normalize_obs: True
+  normalize_reward: True
+  env_seed: 0
+
+
+#### ppo related
+agent_config:
+  gamma: 0.99
+  gae_lambda: 0.95
+  reg_coeff: 1.0 # beta coeff for TDRC
+  gradient_correction: True  # True = TDC and TDRC, False = GTD2
+  is_correction: False  # True for importance sampling correction
+
+  total_steps: 5000000
+  rollout_steps: 2048
+
+  epochs: 4
+  num_mini_batch: 8
+  seq_len_in_minibatch: 32 
+
+  clip_eps: 0.2
+  vf_coef: 0.5
+  gradient_clipping: True 
+  max_grad_norm: 0.5
+  entropy_coef: 0.0
+
+  ## network related
+  actor_lr: 0.0003
+  critic_lr: 0.003
+  h_lr_scale: 1.0
+  activation: tanh
+  d_actor_repr: [64,64]
+  d_critic_repr: [64,64]
+
+

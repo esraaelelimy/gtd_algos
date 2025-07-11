@@ -1,0 +1,44 @@
+
+tag: 'def ppo'
+wandb_project_name: 'mujoco_ppo_defaults'
+exp_seed: 0
+algo: ppo
+#### Env related
+env_config: 
+  domain: gym 
+  env_name: Ant-v4
+  ## for env with continuous action space
+  continous_action: True
+  clip_action: True
+  ## wrappers
+  normalize_obs: True
+  normalize_reward: True
+  env_seed: 0
+
+
+#### ppo related
+agent_config:
+  gamma: 0.99
+  gae_lambda: 0.95
+
+  total_steps: 5000000
+  rollout_steps: 2048
+
+  epochs: 4
+  num_mini_batch: 32
+  seq_len_in_minibatch: 1  # used with tdrc, for ppo this is 1 
+
+  clip_eps: 0.2
+  vf_coef: 0.5
+  gradient_clipping: True 
+  max_grad_norm: 0.5
+  entropy_coef: 0.0
+
+  ## network related
+  actor_lr: 0.0003
+  critic_lr: 0.0003
+  activation: tanh
+  d_actor_repr: [64,64]
+  d_critic_repr: [64,64]
+
+

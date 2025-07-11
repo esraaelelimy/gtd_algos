@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gtd_algos"
+version = "0.0.0"
+description = "GTD Algorithms for Reinforcement Learning"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "gymnasium"
+]
+
+[tool.setuptools]
+packages = ["gtd_algos"]
+package-dir = {"" = "."}

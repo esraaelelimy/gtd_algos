@@ -1,0 +1,8 @@
+__pycache__
+wandb/
+*.DS_Store
+.vscode
+*.txt
+*.pickle
+gtd_algos.egg-info
+*.pdf

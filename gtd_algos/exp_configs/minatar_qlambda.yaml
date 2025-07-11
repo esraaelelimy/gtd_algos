@@ -1,0 +1,39 @@
+
+tag: 'def qlambda'
+wandb_project_name: 'minatar_qlambda_defaults'
+exp_seed: 0
+algo: qlambda
+
+
+#### Env related
+env_config:
+  domain: gym  
+  env_name: "MinAtar/Breakout-v1"
+    #- "MinAtar/Asterix-v1"
+    #- "MinAtar/Breakout-v1"
+    #- "MinAtar/Freeway-v1"
+    #- "MinAtar/SpaceInvaders-v1"
+    #- "MinAtar/Seaquest-v1"
+  ## wrappers
+  normalize_obs: True
+  normalize_reward: True
+  env_seed: 0
+
+
+#### Q(λ) related
+agent_config:
+  gamma: 0.99
+  lamda: 0.8
+
+  total_steps: 5_000_000
+  explore_frac: 0.2
+  start_epsilon: 1.0
+  end_epsilon: 0.01
+
+  ## network related
+  q_lr: 0.0001
+  opt: sgd
+  net_arch: minatar
+  activation: leaky_relu
+  sparse_init: 0.0
+  layer_norm: True
