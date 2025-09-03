@@ -4,6 +4,7 @@
 
 ***(Published in the Reinforcement Learning Journal (RLC 2025))***
 
+#### 🏆 Outstanding Paper Award on The Theory of Reinforcement Learning
 
 ## Overview
 This repository contains the code to reproduce the experiments present in our paper titled [Deep Reinforcement Learning with Gradient Eligibility Traces](https://openreview.net/pdf?id=LZAafvwVMa) which was accepted at (RLC 2025) 
